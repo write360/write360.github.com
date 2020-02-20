@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-image: url("../img/bg01.png");
+  background-repeat: repeat;
+  /*font-family: "Open Sans", sans-serif;
+  font-size: 13pt;
+  color: #696969;
+  font-weight: 300;
+  line-height: 2.25em;*/
+}
+
+#wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  background-color: transparent;
+}
+
+header {
+  background-color: transparent;
+  color: #ffffff;
+  background-repeat: no-repeat;
+  text-align: center;
+  border: 3px solid #d4a66a;
+  border-radius: 6px;
+}
+header a {
+  text-decoration: none;
+}
+header a:link {
+  color: #d4a66a;
+}
+header a:visited {
+  color: #d4a66a;
+}
+header a:hover {
+  color: #7f82b2;
+}
+
+nav {
+  font-weight: bold;
+  padding: 0;
+  font-size: 120%;
+  text-align: left;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+nav ul {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.2em;
+  list-style-type: none;
+  margin: 0; /* 消除ul自带margin*/
+  padding: 0; /* 消除ul自带padding*/
+}
+nav ul li {
+  border: 3px solid #d4a66a;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 1.5em;
+  padding-left: 0.5em;
+}
+nav ul li a {
+  font-weight: 800;
+  letter-spacing: 0.5em;
+  color: #696969;
+  text-decoration: none;
+  padding: 0;
+}
+nav ul li.current {
+  background-color: #fdeaea; /*microsoft edge do not support ARGB(#AARRGGBB)*/
+}
+nav ul li:hover {
+  background-color: rgb(192, 235, 210);
+}
+
+main {
+  display: block;
+  overflow: auto;
+  margin-top: 0.3em;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 3px solid #d4a66a;
+}
+main #gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 190px);
+  grid-auto-rows: 300px;
+  grid-gap: 0.3em; /*height is dynamic, circular dependency prevent using percentage value*/
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  justify-content: center; /*center the grid*/
+}
+main #gallery section {
+  border: 2px solid #fad2d8;
+  background-color: #f8e1e1;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+}
+main #gallery section img {
+  display: block; /*img is inline-block by default*/
+  width: 96%;
+  height: 70%;
+  margin: 0 auto; /*this only works on block elememts*/
+  margin-top: 2%; /*vertical centering in CSS is a myth*/
+  margin-bottom: 2%;
+}
+main #gallery section dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+main #gallery section dt {
+  width: 33%;
+}
+main #gallery section dd {
+  margin-left: auto;
+  width: 66%;
+}
+h1 {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+footer {
+  font-size: 75%;
+  font-style: italic;
+  text-align: left;
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+  padding: 0.5em;
+  margin-top: 0.3em;
+  background-color: transparent;
+  color: #29516d;
+  border: 3px solid #d4a66a;
+  border-radius: 6px;
+}
+
+footer ul {
+  list-style-type: none;
+  margin: 0; /* 消除ul自带margin*/
+  padding: 0; /* 消除ul自带padding*/
+}
+
+footer ul li {
+  line-height: 1.5em;
+  padding-left: 0.5em;
+}
+
+footer ul li a {
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 639px) {
+  #wrapper {
+    min-width: 310px;
+  }
+}
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
+  nav ul {
+    grid-template-columns: repeat(6, 1fr);
+    /*align-content: space-between;*/ /*cross-axis*/
+    /*justify-content: space-between;*/ /*main-axis*/
+  }
+
+  nav ul li a {
+    display: inline-block;
+    width: 3.5em;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #wrapper {
+    max-width: 1024px;
+  }
+  nav ul {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
